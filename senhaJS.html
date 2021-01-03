@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revelação de senha</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        #senha {
+            border: none;
+            border-bottom: 1px solid #474747;
+            outline: none;
+        }
+
+        #senha:focus {
+            border-bottom: 2px solid #494949;
+        }
+
+        #checkbox{
+            position: relative;
+            width: 35px;
+            height: 35px;
+            outline: none;
+            -webkit-appearance: none;
+            top: 0;
+            font-size: 20px;
+        }
+
+        #checkbox::before {
+            content: "🙈";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+        
+        #checkbox:checked::before {
+            content: "🐵";
+        }
+    </style>
+</head>
+<body>
+    <input type="password" id="senha">
+    <input type="checkbox" onclick="revelarSenha()" id="checkbox">
+
+    <script>
+        let senha = document.getElementById("senha");
+        let checkbox = document.getElementById("checkbox");
+
+        function revelarSenha() {
+            if (checkbox.checked === true) {
+                senha.type = "text";
+            } else {
+                senha.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>
